@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+  <div class="header">
+    <div>
+        <h3>Welcome {{user_name}}!</h3>
+    </div>
+    <div class = "account_actions">
+        <a href="/logout">Logout</a>
+        <form action="/wishes/new">
+            {% csrf_token %}
+            <button type="submit">Make a wish!</button>
+        </form>
+        <form action="/wishes/stats">
+            {% csrf_token %}
+            <button type="submit">View stats</button>
+        </form>
+    </div>
+  </div>
+  <div class="wishforms">
+      <p>Your wish list:</p>
+      <table style="width:100%">
+          <tr>
+            <th>Item</th>
+            <th>Date Added</th>
+            <th>Actions</th>
+          </tr>
+          {%for wish in all_my_active_wishes%}
+            <tr>
+              <td>{{wish.name}}</td>
+              <td>{{wish.created_at|date:" M D d Y"}}</td>
+              <td><a href="/remove_wish/{{wish.id}}">Remove</a> | <a href="/wishes/edit/{{wish.id}}"> Edit</a> | <a href="/grant_wish/{{wish.id}}">Granted!</a></td>
+            </tr>
+            {%endfor%}
+        </table>
+  </div>
+
+  <div class="wishforms">
+  <p>Granted wishes:</p>
+  <table style="width:100%">
+      <tr>
+        <th>Item</th>
+        <th>Wisher</th>
+        <th>Date added</th>
+        <th>Date Granted</th>
+        <th>Likes</th>
+        <th>Actions</th>
+      </tr>
+      {%for wish in all_granted_wishes%}
+      <tr>
+        <td>{{wish.name}}</td>
+        <td>{{wish.uploaded_by.first_name}}</td>
+        <td>{{wish.created_at|date:" M D d Y"}}</td>
+        <td>{{wish.created_at|date:" M D d Y"}}</td>
+        <td>{{wish.users_who_liked.count}}</td>
+        {% if wish in user.wish.all %}
+          <td></td>
+        {% else %}
+          <td><a href="/like_wish/{{wish.id}}">Like</a></td>
+          {% endif %}
+      </tr>
+      {%endfor%}
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+.register_login {
+
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.forms {
+    width: 40%;
+    display: flex;
+    flex-direction: column; 
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    padding: 2%;
+    
+}
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.forms .title{
+    text-align: center;
+}
+.stupidbutton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header h3{
+    display: inline;
+}
+
+.header .account_actions{
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+    
+.wishforms table {
+    border-collapse: collapse;
+    border: solid 2px black
+}
+
+.wishforms tr { 
+    border: none;
+}
+
+.wishforms th {
+    border-right: solid 2px black; 
+    border-left: solid 2px black;
+  }
+  
+
+.wishforms td {
+  border-right: solid 2px black; 
+  border-left: solid 2px black;
+}
+
+.wishforms tbody tr:nth-child(even){
+  background: rgb(238,238,238);
+}
+
+.wishforms th{
+  background: rgb(204,204,204);
+}
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.messages{
+    color:red;
+}
+
+.wish_form{
+    width: 40%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    border: solid 2px black;
+    margin: 5px;
+    padding: 20px;
+}
+
+.wish_info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.buttons button{
+    margin-left: 5px;
+}
+
+.buttons a{
+    color: black;
+    text-decoration: none;
+    border: solid 1px grey;
+    padding: 2px;
+    font-size: 14px;
+    background-color: rgb(240, 240, 240);
+}
+
+.stat_heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.stat_heading h1{
+    
+}
